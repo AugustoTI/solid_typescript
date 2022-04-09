@@ -68,3 +68,5 @@ meuCarrinho.addItem({ name: 'Cassaco', price: 69.99 });
 console.log(meuCarrinho.total);
 meuCarrinho.checkout();
 console.log(meuCarrinho.itens);
+
+export default 1;
