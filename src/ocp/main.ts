@@ -1,10 +1,18 @@
 import { Messaging } from './services/messaging';
-import { Order } from './entilies/order';
+import { Order } from './classes/order';
 import { Persistency } from './services/persistency';
-import { Product } from './entilies/product';
-import { ShoppingCart } from './entilies/shopping-cart';
+import { Product } from './classes/product';
+import { ShoppingCart } from './classes/shopping-cart';
+import {
+  FiftyPercentDiscount,
+  NoDiscount,
+  TenPercentDiscount,
+} from './classes/discount';
 
-const shoppingCart = new ShoppingCart();
+// const fiftyPercentDiscount = new FiftyPercentDiscount();
+// const tenPercentDiscount = new TenPercentDiscount();
+const noDiscount = new NoDiscount();
+const shoppingCart = new ShoppingCart(noDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
 
@@ -16,6 +24,7 @@ shoppingCart.addItem(new Product('Casaco', 59.99));
 
 console.log(shoppingCart.itens);
 console.log(shoppingCart.total);
+console.log(shoppingCart.totalWidthDiscount());
 console.log(order.orderStatus);
 order.checkout();
 console.log(order.orderStatus);
