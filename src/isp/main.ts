@@ -8,6 +8,7 @@ import {
   NoDiscount,
   TenPercentDiscount,
 } from './classes/discount';
+import { IndividualCostumer, EnterpriseCostumer } from './classes/customer';
 
 // const fiftyPercentDiscount = new FiftyPercentDiscount();
 // const tenPercentDiscount = new TenPercentDiscount();
@@ -15,8 +16,15 @@ const noDiscount = new NoDiscount();
 const shoppingCart = new ShoppingCart(noDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
+const individualCostumer = new IndividualCostumer('Augusto', 'César', '0000');
+// const enterpriseCostumer = new EnterpriseCostumer('Augusto', '0000--0000');
 
-const order = new Order(shoppingCart, messaging, persistency);
+const order = new Order(
+  shoppingCart,
+  messaging,
+  persistency,
+  individualCostumer,
+);
 
 shoppingCart.addItem(new Product('Camisa', 29.99));
 shoppingCart.addItem(new Product('Calça', 35.99));
